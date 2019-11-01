@@ -114,14 +114,8 @@ function begin_play(){
 		document.getElementById("player2_id").value += ' (O)';
 		document.getElementById("player1_id").disabled = true;
 		document.getElementById("player2_id").disabled = true;
-		if(whose_move()==1)
-		{
-			document.getElementById("turn_info").innerHTML = 'Turn For: ' + x.bold();
-		}
-		else if(whose_move()==0)
-		{
-			document.getElementById("turn_info").innerHTML = 'Turn For: ' + y.bold();
-		}
+		console.log(whose_move());
+		document.getElementById("turn_info").innerHTML = 'Turn For: ' + x.bold();
 	}
 
 }
@@ -152,6 +146,7 @@ function reset_play(){
 	document.getElementById("C3").innerHTML = 'C3';
 	document.getElementById("player1_id").disabled = false;
 	document.getElementById("player2_id").disabled = false;
+	document.getElementById("move_text_id").value = ''
 	for(var i=0; i<9; i++)
 	{
 		board_state[i] = -1;
@@ -200,6 +195,7 @@ function play() {
 	}
 	if(whose_move()==1)
 	{
+		console.log("HERE");
 		document.getElementById(document.getElementById("move_text_id").value).innerHTML = 'X';
 		document.getElementById("turn_info").innerHTML = 'Turn For: ' + y.bold();
 		document.getElementById("move_text_id").value = '';
@@ -207,6 +203,7 @@ function play() {
 	}
 	else if(whose_move()==0)
 	{
+		console.log(whose_move());
 		document.getElementById(document.getElementById("move_text_id").value).innerHTML = 'O';
 		document.getElementById("turn_info").innerHTML = 'Turn For: ' + x.bold();
 		document.getElementById("move_text_id").value = '';
