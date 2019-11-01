@@ -152,6 +152,10 @@ function reset_play(){
 	document.getElementById("C3").innerHTML = 'C3';
 	document.getElementById("player1_id").disabled = false;
 	document.getElementById("player2_id").disabled = false;
+	for(var i=0; i<9; i++)
+	{
+		board_state[i] = -1;
+	}
 	started = false;
 }
 
@@ -174,6 +178,8 @@ The method should do all the things as stated in rule 2.
 function play() {
 	var valid = false;
 	var tie = true;
+	var x = 'X';
+	var y = 'Y';
 	if(started==false)
 	{
 		alert('The game has not started.');
@@ -195,14 +201,14 @@ function play() {
 	if(whose_move()==1)
 	{
 		document.getElementById(document.getElementById("move_text_id").value).innerHTML = 'X';
-		document.getElementById("turn_info").innerHTML = 'Move: O';
+		document.getElementById("turn_info").innerHTML = 'Turn For: ' + y.bold();
 		document.getElementById("move_text_id").value = '';
 		turn = 0;
 	}
 	else if(whose_move()==0)
 	{
 		document.getElementById(document.getElementById("move_text_id").value).innerHTML = 'O';
-		document.getElementById("turn_info").innerHTML = 'Move: X';
+		document.getElementById("turn_info").innerHTML = 'Turn For: ' + x.bold();
 		document.getElementById("move_text_id").value = '';
 		turn = 1;
 	}
