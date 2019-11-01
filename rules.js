@@ -108,17 +108,19 @@ function begin_play(){
 	}
 	else {
 		started = true;
+		var x = 'X';
+		var y = 'Y';
 		document.getElementById("player1_id").value += ' (X)';
 		document.getElementById("player2_id").value += ' (O)';
 		document.getElementById("player1_id").disabled = true;
 		document.getElementById("player2_id").disabled = true;
 		if(whose_move()==1)
 		{
-			document.getElementById("turn_info").innerHTML = 'Turn For: X';
+			document.getElementById("turn_info").innerHTML = 'Turn For: ' + x.bold();
 		}
 		else if(whose_move()==0)
 		{
-			document.getElementById("turn_info").innerHTML = 'Turn For: O';
+			document.getElementById("turn_info").innerHTML = 'Turn For: ' + y.bold();
 		}
 	}
 
